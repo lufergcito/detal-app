@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <div class="ShoppingCartView">
   <h1>  ESTE ES EL HOME </h1>
-     <router-link to="/Cotizar">Cotizar</router-link>
+     <CartModify/>
      
     
   </div>
@@ -9,11 +9,12 @@
 
 <script>
 // @ is an alias to /src
-
+import CartModify from "@/components/CartModify"
  
 export default {
-  name: "Home",
+  name: "ShoppingCartView",
   components: {
+      CartModify
    
    
   }
