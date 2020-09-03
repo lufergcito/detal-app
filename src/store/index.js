@@ -164,8 +164,10 @@ export default new Vuex.Store({
        state.shoppingcart.push(producto)
 
     },
-    DEL_CARTITEM(state, producto) {
-      state.shoppingcart.push(producto)
+    DEL_CARTITEM(state, cartitem) {
+      let indice = state.shoppingcart.indexOf(cartitem)
+      state.shoppingcart.splice(indice,1) ;
+
 
     }
   },
@@ -174,7 +176,8 @@ export default new Vuex.Store({
        commit('ADD_CARTITEM', producto);
     },
     deleteCartShopItem({ commit }, cartItem) { 
-      commint("DEL_CARTITEM", cartItem)
+      commit("DEL_CARTITEM", cartItem)
+      
     }
   },
   modules: {}

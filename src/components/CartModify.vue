@@ -33,14 +33,14 @@
  <br>
 
    
-     <v-btn color="success" > <span>Cotizar </span> </v-btn>
+     <v-btn color="success"  > <span>Cotizar </span> </v-btn>
      <v-spacer></v-spacer>
       <br>
   
      <v-btn color="success" > <span>Eliminar </span> </v-btn>
      <v-spacer></v-spacer>
       <br>
-     <v-btn color="success "> <span>Imprimir </span> </v-btn> 
+     <v-btn color="success " @click="generarPDF"> <span>Imprimir </span> </v-btn> 
      <v-spacer></v-spacer> 
      
        
@@ -63,7 +63,7 @@
           </v-icon>
                  </template>
           <template v-slot:item.action2="{ item }">
-           <v-icon large color="blue" class="mr-2" >
+           <v-icon large color="blue" class="mr-2" @click="deleteItem" >
             mdi-delete-forever
           </v-icon>
               </template>
@@ -86,6 +86,7 @@
 </template>
 
 <script>
+  import jsPDF from 'jspdf'
   export default {
     data () {
       return {
@@ -159,7 +160,14 @@
      deleteItem (item) {
      //   const index = this.desserts.indexOf(item)
      //   confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
+      this.$store.dispatch("deleteCartShopItem", item)
       },
+      generarPDF(){
+         let doc = new jsPDF() ;
+         doc.text('Hola MUndo',10,10)
+         doc.save('prueba.pdf')
+
+      }
     }
   }
 </script>
