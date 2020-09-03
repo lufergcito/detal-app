@@ -160,15 +160,21 @@ export default new Vuex.Store({
 
   },
   mutations: {
-    ADD_PRODUCTO(state, producto){
+    ADD_CARTITEM(state, producto){
        state.shoppingcart.push(producto)
+
+    },
+    DEL_CARTITEM(state, producto) {
+      state.shoppingcart.push(producto)
 
     }
   },
   actions: {
     additemshoppingcart({commit},producto) {
-       commit('ADD_PRODUCTO', producto);
-
+       commit('ADD_CARTITEM', producto);
+    },
+    deleteCartShopItem({ commit }, cartItem) { 
+      commint("DEL_CARTITEM", cartItem)
     }
   },
   modules: {}

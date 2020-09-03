@@ -151,14 +151,15 @@
          // console.log("Viejo Precio " + precioViejo);
 
      } ,
-
      clickFila(value) {
         console.log(value);
          this.indiceActual = this.$store.state.shoppingcart.indexOf(value) ;
-           }
+           },
 
-
-
+     deleteItem (item) {
+     //   const index = this.desserts.indexOf(item)
+     //   confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
+      },
     }
   }
 </script>
